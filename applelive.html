@@ -44,7 +44,7 @@
         <div rel="preload" class="container justify-content-center center2 text-center">
             <div class="row align-items-center">
                 <div rel="preload" class="col-sm justify-content-center">
-                    <video rel="preload" id="live" class="video-js vjs-fluid" controls preload="auto" poster="pic/JunctionKanshiLogoLandscape.png">
+                    <video rel="preload" id="live" class="video-js vjs-fluid" controls poster="pic/JunctionKanshiLogoLandscape.png">
                         <source rel="preload" src="https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/chunklist_w1042704716.m3u8" type="application/x-mpegURL">
                     </video>
                     <div class="vjs-custom-overlay"></div>
@@ -83,11 +83,28 @@
                 });
             });
         });
+
+
+     document.addEventListener('DOMContentLoaded', function() {
+        var player = videojs('live', {
+            controls: true,
+            autoplay: true,
+            muted: true,
+            preload: 'auto'
+        });
+
+        player.ready(function() {
+             this.play(); // Attempt to play the video automatically on ready
+            });
+        );
     </script>
     -->
+
+    
     <script>
         var player = videojs('live', {
             controls: true,
+            autoplay: true,
             muted: true,
             preload: 'auto',
             controlBar: {
@@ -108,25 +125,7 @@
             player.play().catch(function(error) {
                 console.log('Initial autoplay failed, user interaction required');
             });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var player = videojs('live');
-            var overlayText = document.createElement('div');
-            overlayText.className = 'vjs-custom-overlay';
-            overlayText.textContent = '';
-
-            player.el().appendChild(overlayText);
-
-            player.on('timeupdate', function() {
-                var currentTime = player.currentTime();
-                if (currentTime > 1) { // After 10 seconds
-                    overlayText.textContent = '';
-                } else {
-                    overlayText.textContent = 'Long press to play live srteam!';
-                }
-            });
-        });
+        })
     </script>
     
 
