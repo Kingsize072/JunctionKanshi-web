@@ -87,13 +87,11 @@
     -->
     <script>
         var player = videojs('live', {
-            controls: true,
+            controls: false,
             muted: true,
-            autoplay: video.player.autoplay,
             preload: 'auto',
             controlBar: {
             children: [
-
             ]},
         });
 
@@ -109,6 +107,24 @@
         player.ready(function() {
             player.play().catch(function(error) {
                 console.log('Initial autoplay failed, user interaction required');
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var player = videojs('live');
+            var overlayText = document.createElement('div');
+            overlayText.className = 'vjs-custom-overlay';
+            overlayText.textContent = '';
+
+            player.el().appendChild(overlayText);
+
+            player.on('timeupdate', function() {
+                var currentTime = player.currentTime();
+                if (currentTime > 1) { // After 10 seconds
+                    overlayText.textContent = '';
+                } else {
+                    overlayText.textContent = 'Long press to play live srteam!';
+                }
             });
         });
     </script>
