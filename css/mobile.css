@@ -150,6 +150,16 @@ version {
     background-color: rgba(0, 0, 0, 0.0);
 }
 
+.video-js .vjs-button {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.video-js .vjs-play-control .video-js .vjs-volume-panel {
+    color: rgb(255, 255, 255);
+}
+
 .video-js .vjs-big-play-button {
     background-color: rgb(0, 0, 0, 0.85); 
     color: rgb(255, 255, 255) !important;
