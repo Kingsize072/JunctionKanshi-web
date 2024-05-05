@@ -109,24 +109,6 @@
                 console.log('Initial autoplay failed, user interaction required');
             });
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            var player = videojs('live');
-            var overlayText = document.createElement('div');
-            overlayText.className = 'vjs-custom-overlay';
-            overlayText.textContent = '';
-
-            player.el().appendChild(overlayText);
-
-            player.on('timeupdate', function() {
-                var currentTime = player.currentTime();
-                if (currentTime > 1) { // After 10 seconds
-                    overlayText.textContent = '';
-                } else {
-                    overlayText.textContent = 'Click ▶ to play live srteam!';
-                }
-            });
-        });
     </script>
     
 
