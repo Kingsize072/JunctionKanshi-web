@@ -84,7 +84,7 @@
             });
         });
     --------------------------------------------------------------------------
-    document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
         var player = videojs('live', {
             controls: true,
             autoplay: true,
@@ -97,13 +97,20 @@
             });
         );
 
-    var player = videojs('live', {
-            controls: false,
+        
+    </script>
+    -->
+
+    <script>
+        var player = videojs('live', {
+            controls: true,
             autoplay: false,
             muted: true,
             preload: 'auto',
             controlBar: {
             children: [
+            "playToggle",
+            "pictureInPictureToggle"
             ]},
         });
 
@@ -121,22 +128,6 @@
                 console.log('Initial autoplay failed, user interaction required');
             });
         })
-    </script>
-    -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        var player = videojs('live', {
-            controls: true,
-            autoplay: true,
-            muted: true,
-            preload: 'auto'
-        });
-
-        player.ready(function() {
-             this.play(); // Attempt to play the video automatically on ready
-            });
-        });
     </script>
     
 
