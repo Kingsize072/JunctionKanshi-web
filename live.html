@@ -49,7 +49,7 @@
         <div rel="preload" class="container justify-content-center center2 text-center">
             <div class="row align-items-center">
                 <div rel="preload" class="col-sm justify-content-center">
-                        <video rel="preload" id="live" class="video-js vjs-fluid" preload="auto">
+                        <video rel="preload" id="live" class="video-js vjs-fluid" controls preload="auto">
                           <source rel="preload" src="https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/chunklist_w1042704716.m3u8" type="application/x-mpegURL">
                         </video>
                 </div>
@@ -57,8 +57,10 @@
         </div>
     </div>
     <script>
-        var player = videojs("live");
-        player.play();
+         document.addEventListener('DOMContentLoaded', function() {
+            var player = videojs('live');
+            player.play();
+        });
     </script>
     <script rel="preload" src="js/num.js"></script>
     <script rel="preload" src="js/mobileScript.js"></script>
