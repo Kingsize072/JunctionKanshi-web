@@ -141,7 +141,7 @@ version {
     text-shadow: 0 0 5px #000;
 }
 
-/*
+
 
 .vjs-custom-overlay {
     position: flex;
@@ -162,7 +162,7 @@ version {
     background-color: rgba(0, 0, 0, 0.0);
 }
 
-/*
+
 .video-js .vjs-big-play-button {
     background-color: rgb(0, 0, 0, 0.85); 
     color: rgb(255, 255, 255) !important;
@@ -192,7 +192,7 @@ version {
     border-width: 0px;
     border-color: rgba(255, 255, 255, 0) transparent transparent transparent;
 }
-*/
+
 
 @-webkit-keyframes snowflakes-fall {
     0% {

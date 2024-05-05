@@ -43,7 +43,7 @@
         <div class="container justify-content-center center2 text-center">
             <div class="row align-items-center">
                 <div class="col-sm justify-content-center">
-                    <video id="live" class="video-js vjs-fluid" preload="auto" muted autoplay>
+                    <video id="live" class="video-js vjs-fluid" preload="auto" autoplay>
                         <source src="https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/chunklist_w1042704716.m3u8" type="application/x-mpegURL">
                     </video>
                 </div>
@@ -52,16 +52,27 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var player = videojs('live', {
-                controls: false,
-                autoplay: true,
-                muted: true,
-                preload: 'auto'
-            });
+        var player = videojs('live', {
+            controls: false,
+            muted: true,
+            preload: 'auto',
+            controlBar: {
+            children: [
+            ]},
+        });
 
-            player.ready(function() {
-                this.play(); // Attempt to play the video automatically on ready
+        function playVideo() {
+            player.play().then(function() {
+                console.log('Playback started successfully');
+            }).catch(function(error) {
+                console.error('Error attempting to play:', error);
+            });
+        }
+
+        // Optionally, try to play the video on page load as well
+        player.ready(function() {
+            player.play().catch(function(error) {
+                console.log('Initial autoplay failed, user interaction required');
             });
         });
     </script>
