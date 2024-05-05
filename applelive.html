@@ -89,10 +89,11 @@
         var player = videojs('live', {
             controls: true,
             muted: true,
-            autoplay: true,
+            autoplay: video.player.autoplay,
             preload: 'auto',
             controlBar: {
             children: [
+
             ]},
         });
 
